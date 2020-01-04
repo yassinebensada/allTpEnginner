@@ -1,40 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void affiche_vecteur(int* tab,int length)
+int* alloue_vecteur(int length,int value)
 {
     int i;
+    int* vect = malloc(length*sizeof(int));
     for(i=0;i<length;i++)
-    {
-        printf("Table[%d] : %d\t",i,*(tab+i));
-    }
+   {
+       *(vect+i)=value;
+   }
+   return vect ;
 }
-void affiche_matrice(int** mat,int line,int column)
+int** alloue_matrice(int ligne,int column,int value)
 {
     int i,j;
-    for(i=0;i<line;i++)
+    int** matrice = malloc(ligne*sizeof(int*));
+    for(i=0;i<ligne;i++)
+    {
+        *(matrice+i) = malloc(column*sizeof(int));
+    }
+    for(i=0;i<ligne;i++)
     {
         for(j=0;j<column;j++)
         {
-            printf("Table[%d][%d] : %d\n",i,j,*(*(mat+i)+j));
+            matrice[i][j]=value;
         }
-
     }
+    return matrice;
+
 }
 int main()
 {
-     int i,j;
-     int ligne,colum;
-     printf("Lignes ? : ");
-     scanf("%d",&ligne);
-     printf("Column ? : ");
-     scanf("%d",&colum);
-     int** matrice = malloc(ligne*sizeof(int*));
-     for (i=0;i<ligne;i++)
-        matrice[i]= malloc(colum*sizeof(int));
-     for (i=0;i<ligne;i++)
-        for(j=0;j<colum;j++)
-            matrice[i][j]=j*i;
-     affiche_matrice(matrice,ligne,colum);
+    int** matrice = alloue_matrice(4,4,2);
+
     return 0;
 }
