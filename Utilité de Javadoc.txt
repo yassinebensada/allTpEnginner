@@ -1,0 +1,8 @@
+- Documentation permet de clarifier votre code et ces fonctionnalités
+- Permet de reviser et réutiliser les codes sources au cas d'oublie 
+- Permet de expliquer le code aux autres programmeurs.
+- Permet de presenter votre code ou meme 
+- Plus utile que les commentaires puisque Il genere un document html contenant les liens hypertext permet 
+deplacer facilement
+- Plusieurs outils sont utilisés dans ces documentation
+- Eviter les problemes de la maintenance
